@@ -6,7 +6,7 @@ Terraform Modules and Examples to help with setting up test Consul clusters in D
 
 ## Modules
 
-There is a **server** module as well as a **client** module for configuring servers and clients within a datacenter respectively. The server module has two important outputs – `join` and `wan_join`. These can be used as `extra_args` to further invocations of these modules to cause other clients or servers to join the cluster properly. fileciteturn0file0
+There is a **server** module as well as a **client** module for configuring servers and clients within a datacenter respectively. The server module has two important outputs – `join` and `wan_join`. These can be used as `extra_args` to further invocations of these modules to cause other clients or servers to join the cluster properly.
 
 ## Examples
 
