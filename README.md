@@ -117,7 +117,9 @@ git branch --set-upstream-to=upstream/master main
 ```
 
 #### When you open a PR back to upstream
+
 **_Base branch_**: mkeeler:master
+
 **_Compare branch_**: natemollica-nm:main
 
 GitHub has no problem with the different branch names.
