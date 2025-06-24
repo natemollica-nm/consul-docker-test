@@ -10,7 +10,7 @@ module "alpha_gateways" {
 
   source = "../../modules/consul-envoy"
 
-  consul_envoy_image       = docker_image.envoy.latest
+  consul_envoy_image       = docker_image.envoy.name
   name                     = "envoy-${each.key}${local.cluster_id.name_suffix}"
   consul_manager           = local.alphaGateways[each.key].name
   container_network_inject = true
@@ -31,7 +31,7 @@ module "beta_gateways" {
 
   source = "../../modules/consul-envoy"
 
-  consul_envoy_image       = docker_image.envoy.latest
+  consul_envoy_image       = docker_image.envoy.name
   name                     = "envoy-${each.key}${local.cluster_id.name_suffix}"
   consul_manager           = local.betaGateways[each.key].name
   container_network_inject = true

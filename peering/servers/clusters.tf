@@ -34,7 +34,7 @@ module "clusters" {
   persistent_data         = true
   datacenter              = "primary"
   default_networks        = [local.network.name]
-  default_image           = local.consul_image.latest
+  default_image           = local.consul_image.name
   default_name_prefix     = "consul-${local.clusterNames[count.index]}-server-"
   default_name_suffix     = local.cluster_id.name_suffix
   default_name_include_dc = false

@@ -1,6 +1,6 @@
 variable "consul_image" {
    type = string
-   default = "consul:latest"
+   default = "hashicorp/consul:latest"
    description = "Name of the Consul container image to use"
 }
 

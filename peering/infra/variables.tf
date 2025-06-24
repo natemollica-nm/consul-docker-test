@@ -12,13 +12,13 @@ variable "consul_image" {
 
 variable "enterprise" {
   type        = bool
-  default     = false
+  default     = false # true
   description = "Whether to use Consul Enterprise features"
 }
 
 variable "consul_version" {
   type        = string
-  default     = "local"
+  default     = "local" # 1.13.2-ent
   description = "Version of consul container to use. 'local' will default to using a locally built version of consul"
 }
 

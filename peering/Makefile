@@ -1,8 +1,8 @@
 ENTERPRISE?=1
 HA?=0
-CONSUL_VERSION?=1.13.1
+CONSUL_VERSION?=latest
 CONSUL_IMAGE_VERSION=$(CONSUL_VERSION)
-ENVOY_IMAGE_VERSION?=v1.23-latest
+ENVOY_IMAGE_VERSION?=v1.33-latest
 
 ifeq ($(ENTERPRISE),1)
 DEFAULT_IMAGE_NAME=hashicorp/consul-enterprise
@@ -15,6 +15,8 @@ else
 DEFAULT_IMAGE_NAME=consul
 ENTERPRISE_ARG=false
 endif
+
+PLATFORM := $(shell terraform version -json | jq -r '.platform')
 
 CONSUL_IMAGE_NAME?=$(DEFAULT_IMAGE_NAME)
 
@@ -94,8 +96,8 @@ clients-destroy:
 consul-tf-provider:
 	git clone --single-branch -b peering https://github.com/mkeeler/terraform-provider-consul
 	cd terraform-provider-consul && go build
-	mkdir -p ~/.terraform.d/plugins/terraform.local/hashicorp/consul/2.15.1/$(terraform version -json | jq -r '.platform')
-	cp terraform-provider-consul/terraform-provider-consul ~/.terraform.d/plugins/terraform.local/hashicorp/consul/2.15.1/$(terraform version -json | jq -r '.platform')/terraform-provider-consul_v2.15.1
+	mkdir -p ~/.terraform.d/plugins/terraform.local/hashicorp/consul/2.15.1/$(PLATFORM)
+	cp terraform-provider-consul/terraform-provider-consul ~/.terraform.d/plugins/terraform.local/hashicorp/consul/2.15.1/$(PLATFORM)/terraform-provider-consul_v2.15.1
 	rm -rf terraform-provider-consul
 	
 .PHONY: consul-envoy-image

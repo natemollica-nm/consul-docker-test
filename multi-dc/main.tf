@@ -39,7 +39,7 @@ resource "docker_network" "consul_bridge_network" {
 
 variable "consul_image" {
    type = string
-   default = "consul:latest"
+   default = "hashicorp/consul:latest"
    description = "Name of the Consul container image to use"
 }
 

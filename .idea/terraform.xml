@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TerraformProjectSettings" ignoredTemplateCandidatePaths="[file:///Users/natemollica/HashiCorp/consul-docker-test/agentless/agent-conf.hcl]" />
+</project>
