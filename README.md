@@ -91,3 +91,33 @@ make simple-mesh/destroy WORKSPACE=demo-a
 * **Listing workspaces** – Inside any module directory, run `terraform workspace list` to see what the Makefile created.
 * **Cleaning up empty workspaces** – After `destroy`, run `terraform workspace delete <name>` if you want to remove leftover directories.
 * **Container port clashes** – Workspaces isolate state but not Docker resources. If you need multiple environments at once, adjust the `EXTERNAL_HTTP_PORT` / `EXTERNAL_DNS_PORT` variables (see each example’s `terraform.tfvars`).
+
+---
+
+### Working with upstream after the rename
+
+Your fork’s history hasn’t changed—main is the same commits as master used to be—so syncing is simple:
+
+```bash
+# fetch new commits from upstream
+git fetch upstream
+
+# rebase your main on upstream/master
+git rebase upstream/master
+
+# push the updated history to your fork
+git push
+```
+
+You can even set up a shortcut:
+
+```bash
+git branch --set-upstream-to=upstream/master main
+# now `git pull --rebase` will track upstream by default
+```
+
+#### When you open a PR back to upstream
+**_Base branch_**: mkeeler:master
+**_Compare branch_**: natemollica-nm:main
+
+GitHub has no problem with the different branch names.
